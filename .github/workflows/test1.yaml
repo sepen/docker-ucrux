@@ -12,5 +12,14 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Prepare loop device
-      run: make isomount
+    - name: Download iso file
+      run: wget http://ftp.spline.inf.fu-berlin.de/pub/crux/crux-2.0/contrib/ucrux-2.0.iso
+
+    - name: Mount iso file
+      uses: damianperera/mount-image-action@v1
+      with:
+        imagePath: ucrux-2.0.iso
+        mountPoint: /mnt
+
+    - name: List contents of /mnt
+      run: ls -la /mnt
