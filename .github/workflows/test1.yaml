@@ -11,6 +11,4 @@ jobs:
 
     steps:
       - name: Prepare loop device
-        run: |
-          DEVICE=$(losetup -f)
-          echo "-- $DEVICE --"
+        run: make
