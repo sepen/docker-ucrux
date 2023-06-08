@@ -1,3 +1,3 @@
-# github-workflow-tests
+# uCRUX Linux Docker Image
 
-Test repository where practice with github workflows
+uCRUX is a port of CRUX Linux (https://crux.nu) using the uClibc C library (https://www.uclibc.org)
