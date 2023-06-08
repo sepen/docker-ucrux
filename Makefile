@@ -1,3 +1,6 @@
+# Use a loop device for mounting the iso and extract their contents
+LOOP_DEVICE := $(shell losetup -f)
+
 # PHONY goal dynamically
 .PHONY: $(MAKECMDGOALS)
 
@@ -31,7 +34,6 @@ help:
 login:
 	docker login -u $(DOCKER_USERNAME) -p $(DOCKER_PASSWORD) docker.io
 
-LOOP_DEVICE := $(shell losetup -f)
 all:
 	# 2.0
 	wget -q http://ftp.spline.inf.fu-berlin.de/pub/crux/crux-2.0/contrib/ucrux-2.0.iso
