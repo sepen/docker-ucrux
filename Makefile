@@ -40,7 +40,7 @@ all:
 	sudo losetup $(LOOP_DEVICE) ucrux-2.0.iso
 	mkdir -p .iso_contents
 	sudo mount $(LOOP_DEVICE) .iso_contents
-	cd .iso_contents && sudo tar -xf ../ucrux-2.0.tar * && cd ..
+	cd .iso_contents && sudo tar -cf ../ucrux-2.0.tar * && cd ..
 	sudo umount .iso_contents
 	sudo losetup -d $(LOOP_DEVICE)
 	docker build -t sepen/ucrux:2.0 -f 2.0/Dockerfile .
@@ -51,7 +51,7 @@ all:
 	sudo losetup $(LOOP_DEVICE) ucrux-2.0.iso
 	mkdir -p .iso_contents
 	sudo mount $(LOOP_DEVICE) .iso_contents
-	cd .iso_contents && sudo tar -xf ../ucrux-2.1.tar * && cd ..
+	cd .iso_contents && sudo tar -cf ../ucrux-2.1.tar * && cd ..
 	sudo umount .iso_contents
 	sudo losetup -d $(LOOP_DEVICE)
 	docker build -t sepen/ucrux:2.1 -f 2.1/Dockerfile .
