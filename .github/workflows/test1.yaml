@@ -11,4 +11,4 @@ jobs:
 
     steps:
       - name: Prepare loop device
-        run: make
+        run: make isomount
