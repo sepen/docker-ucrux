@@ -17,8 +17,9 @@ jobs:
 
     - name: Mount iso as loop device
       run: |
-        sudo losetup /dev/loop0 ucrux-2.0.iso
-        sudo mount /dev/loop0 /media
+        LOOP_DEVICE=$(losetup -f)
+        sudo losetup ${LOOP_DEVICE} ucrux-2.0.iso
+        sudo mount ${LOOP_DEVICE} /media
 
 #    - name: Prepare loop device for the iso file
 #      run: |
