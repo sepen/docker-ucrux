@@ -8,6 +8,6 @@ all:
 	mkdir .iso_contents
 	mount $(LOOP_DEVICE) .iso_contents
 	docker build -t ucrux:2.0 .
-	docker image ls
+	docker run -it ucrux:2.0 bash -c "crux"
 	umount .iso_contents
 	losetup -d $(LOOP_DEVICE)
