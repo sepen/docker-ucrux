@@ -19,4 +19,6 @@ jobs:
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build and push all images
-      run: sudo make all
+      run: |
+        id -a
+        sudo make all
