@@ -15,15 +15,20 @@ jobs:
     - name: Download iso file
       run: wget http://ftp.spline.inf.fu-berlin.de/pub/crux/crux-2.0/contrib/ucrux-2.0.iso
 
-    - name: Prepare loop device for the iso file
+    - name: Mount iso as loop device
       run: |
-        mknod ./loop100 b 7 100
-        losetup ./loop0 ./ucrux-2.0.iso
+        sudo losetup /dev/loop0 ucrux-2.0.iso
+        sudo mount /dev/loop0 /media
 
-    - name: Mount loop device
-      run: |
-        mkdir ./media
-        mount ./loop100 ./media
+#    - name: Prepare loop device for the iso file
+#      run: |
+#        mknod ./loop100 b 7 100
+#        losetup ./loop0 ./ucrux-2.0.iso
+#
+#    - name: Mount loop device
+#      run: |
+#        mkdir ./media
+#        mount ./loop100 ./media
 
     - name: List contents of /mnt
-      run: ls -la ./media
+      run: ls -la /media
