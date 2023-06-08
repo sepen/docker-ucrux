@@ -1,3 +1,3 @@
 # uCRUX Linux Docker Image
 
-uCRUX is a port of CRUX Linux (https://crux.nu) using the uClibc C library (https://www.uclibc.org)
+uCRUX is a port of [CRUX](https://crux.nu) Linux using the [uClibc C](https://uclibc.org) library.
