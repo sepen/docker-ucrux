@@ -12,14 +12,11 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    #- name: Log in to Docker Hub
-    #  uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
-    #  with:
-    #    username: ${{ secrets.DOCKER_USERNAME }}
-    #    password: ${{ secrets.DOCKER_PASSWORD }}
+    - name: Log in to Docker Hub
+      uses: docker/login-action@f4ef78c080cd8ba55a85445d5b36e214a81df20a
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build and push all images
-      env:
-        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      run: sudo -E make all
+      run: make all
