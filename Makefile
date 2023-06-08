@@ -40,20 +40,22 @@ all:
 	sudo losetup $(LOOP_DEVICE) ucrux-2.0.iso
 	mkdir -p .iso_contents
 	sudo mount $(LOOP_DEVICE) .iso_contents
-	docker build -t sepen/ucrux:2.0 -f 2.0/Dockerfile .
+	cd .iso_contents && sudo tar -xf ../ucrux-2.0.tar * && cd ..
 	sudo umount .iso_contents
 	sudo losetup -d $(LOOP_DEVICE)
-	docker run -t ucrux:2.0 bash -c "crux"
+	docker build -t sepen/ucrux:2.0 -f 2.0/Dockerfile .
+	docker run -t sepen/ucrux:2.0 bash -c "crux"
 	docker push sepen/ucrux:2.0
 	# 2.1
 	wget -q http://ftp.spline.inf.fu-berlin.de/pub/crux/crux-2.1/contrib/ucrux-i486/ucrux-2.1.iso
 	sudo losetup $(LOOP_DEVICE) ucrux-2.0.iso
 	mkdir -p .iso_contents
 	sudo mount $(LOOP_DEVICE) .iso_contents
-	docker build -t sepen/ucrux:2.1 -f 2.1/Dockerfile .
+	cd .iso_contents && sudo tar -xf ../ucrux-2.1.tar * && cd ..
 	sudo umount .iso_contents
 	sudo losetup -d $(LOOP_DEVICE)
-	docker run -t ucrux:2.0 bash -c "crux"
+	docker build -t sepen/ucrux:2.1 -f 2.1/Dockerfile .
+	docker run -t sepen/ucrux:2.1 bash -c "crux"
 	docker push sepen/ucrux:2.1
 	# latest
 	docker tag sepen/ucrux:2.1 sepen/ucrux:latest
