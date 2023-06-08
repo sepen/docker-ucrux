@@ -6,9 +6,11 @@ on:
 
 jobs:
 
-  download:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Prepare loop device
-        run: make isomount
+    - uses: actions/checkout@v3
+
+    - name: Prepare loop device
+      run: make isomount
