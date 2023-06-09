@@ -1,4 +1,4 @@
-FROM alpine as builder
+FROM busybox
 COPY ucrux-2.0.tar /tmp
 RUN install -d -m 0755 -o root -g root /rootfs && \
     tar -C /media -xf /tmp/ucrux-2.0.tar && \
